@@ -211,7 +211,7 @@ use Cake\Core\Configure;
                 <?= __('Signed in as foobar') ?>  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href=""><?= $this->Html->faIcon('user', ['class' => 'fa-fw fa-space']) . __('User Profile') ?></a></li>
+                <li><a href=""><?= __('User Profile') ?></a></li>
                 <li class="divider"></li>
                 <li></li>
             </ul>
