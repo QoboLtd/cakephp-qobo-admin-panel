@@ -1,9 +1,3 @@
-<?php
-/**
- * Qontent Factory layout.
- */
-use Cake\Core\Configure;
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
