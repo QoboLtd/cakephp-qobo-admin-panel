@@ -213,7 +213,7 @@ use Cake\Core\Configure;
             <ul class="dropdown-menu dropdown-user">
                 <li><a href=""><?= __('User Profile') ?></a></li>
                 <li class="divider"></li>
-                <li></li>
+                <li><a href=""><?= __('Logout') ?></a></li>
             </ul>
             <!-- /.dropdown-user -->
         </li>
