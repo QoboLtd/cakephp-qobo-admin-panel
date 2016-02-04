@@ -1,5 +1,5 @@
 {
-    "name": "qobo/QoboAdminPanel",
+    "name": "qobo/qobo-admin-panel",
     "description": "QoboAdminPanel plugin for CakePHP",
     "type": "cakephp-plugin",
     "require": {
