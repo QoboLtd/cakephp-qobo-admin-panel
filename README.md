@@ -31,4 +31,4 @@ Examples can be found under the Layout folder.
 
 ## License
 
-MIT
+GPLv2
