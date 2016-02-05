@@ -1,25 +1,34 @@
 # QoboAdminPanel plugin for CakePHP
 
-## Installation
+The plugin comes with one layout which is based on Start Bootstrap - SB Admin 2 Bootstrap Admin Theme (https://github.com/BlackrockDigital/startbootstrap-sb-admin-2).
 
-You can install this plugin into your CakePHP application using [composer](http://getcomposer.org).
+## Setup
 
-The recommended way to install composer packages is:
-
+Install plugin
 ```
 composer require qobo/cakephp-qobo-admin-panel
+
 ```
+Load plugin
 
-## Default Layout
+```
+bin/cake plugin load QoboAdminPanel
 
-The plugin comes with one layout which is based on Start Bootstrap - SB Admin 2 Bootstrap Admin Theme (https://github.com/BlackrockDigital/startbootstrap-sb-admin-2).
+```
+In the AppView add:
+```
+public $layout = 'QoboAdminPanel.basic';
+```
 
 ## Examples
 
-Under the Layout folder you can find examples folder where there is a few examples of how to add your content using the
-plugin's layout.
+Examples can be found under the Layout folder.
 
 ## ToDos
 
 1. Add test cases
 2. Move assets files to package manager
+
+## License
+
+GPLv2
