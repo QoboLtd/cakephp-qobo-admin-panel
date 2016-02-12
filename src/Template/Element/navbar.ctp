@@ -13,11 +13,35 @@ use Cake\Core\Configure;
         <a class="navbar-brand" href="/">Qobo Admin Panel</a>
     </div>
     <!-- /.navbar-header -->
-    <?= $this->element('Menu.menu', ['name' => MENU_SIDEBAR, 'renderAs' => RENDER_AS_LIST]); ?>
+    <?= $this->element(
+        'Menu.menu',
+        [
+            'name' => MENU_TOP,
+            'renderAs' => [
+                'menuStart' => '<ul class="nav navbar-top-links navbar-right">',
+                'menuEnd' => '</ul>',
+                'itemStart' => '<li>',
+                'itemEnd' => '</li>',
+                'item' => '<a href="%url%">%label%</a>',
+            ]
+        ]);
+    ?>
 
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
-            <?= $this->element('Menu.menu', ['name' => MENU_TOP, 'renderAs' => RENDER_AS_LIST]); ?>
+            <?= $this->element(
+                'Menu.menu',
+                [
+                    'name' => MENU_SIDEBAR,
+                    'renderAs' => [
+                        'menuStart' => '<ul class="nav">',
+                        'menuEnd' => '</ul>',
+                        'itemStart' => '<li>',
+                        'itemEnd' => '</li>',
+                        'item' => '<a href="%url%">%label%</a>',
+                    ]
+                ]);
+            ?>
         </div>
         <!-- /.sidebar-collapse -->
     </div>
