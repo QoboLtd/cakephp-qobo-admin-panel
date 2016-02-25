@@ -48,5 +48,6 @@ use Cake\Core\Configure;
     <ul class="nav navbar-top-links navbar-right">
         <?= $this->element('QoboAdminPanel.messages'); ?>
     </ul>
+    <?= $this->element('QoboAdminPanel.search'); ?>
     <!-- /.navbar-static-side -->
 </nav>
