@@ -19,9 +19,6 @@ use Cake\Core\Configure;
             'name' => MENU_TOP,
             'renderAs' => [
                 'menuStart' => '<ul class="nav navbar-top-links navbar-right">',
-                'menuEnd' => '</ul>',
-                'itemStart' => '<li>',
-                'itemEnd' => '</li>',
                 'item' => '<a href="%url%">%label%</a>',
             ]
         ]);
@@ -35,9 +32,6 @@ use Cake\Core\Configure;
                     'name' => MENU_SIDEBAR,
                     'renderAs' => [
                         'menuStart' => '<ul class="nav">',
-                        'menuEnd' => '</ul>',
-                        'itemStart' => '<li>',
-                        'itemEnd' => '</li>',
                         'item' => '<a href="%url%">%label%</a>',
                     ]
                 ]);
