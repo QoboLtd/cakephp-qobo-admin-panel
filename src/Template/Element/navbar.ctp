@@ -45,5 +45,8 @@ use Cake\Core\Configure;
         </div>
         <!-- /.sidebar-collapse -->
     </div>
+    <ul class="nav navbar-top-links navbar-right">
+        <?= $this->element('QoboAdminPanel.messages'); ?>
+    </ul>
     <!-- /.navbar-static-side -->
 </nav>
