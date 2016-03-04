@@ -40,7 +40,8 @@
     <?= $this->Html->script('//cdn.ckeditor.com/4.5.7/standard/ckeditor.js', ['block' => true]); ?>
     <?= $this->Html->script('QoboAdminPanel.metisMenu.min', ['block' => true]); ?>
     <?= $this->Html->script('QoboAdminPanel.sb-admin-2', ['block' => true]); ?>
-    <?= $this->fetch('script') ?>
+    <?= $this->fetch('script'); ?>
+    <?= $this->fetch('scriptBottom'); ?>
     <script>
         // Replace the <textarea id="editor1"> with a CKEditor
         // instance, using default configuration.
