@@ -37,16 +37,9 @@
     <!-- Application's client functionality -->
     <?= $this->Html->script('https://code.jquery.com/jquery-2.1.4.min.js', ['block' => true]); ?>
     <?= $this->Html->script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', ['block' => true]); ?>
-    <?= $this->Html->script('//cdn.ckeditor.com/4.5.7/standard/ckeditor.js', ['block' => true]); ?>
     <?= $this->Html->script('QoboAdminPanel.metisMenu.min', ['block' => true]); ?>
     <?= $this->Html->script('QoboAdminPanel.sb-admin-2', ['block' => true]); ?>
     <?= $this->fetch('script'); ?>
     <?= $this->fetch('scriptBottom'); ?>
-    <script>
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        CKEDITOR.replace( 'editor1' );
-        CKEDITOR.replace( 'editor2' );
-    </script>
 </body>
 </html>

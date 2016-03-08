@@ -5,3 +5,7 @@
 .fa-space {
 	margin-right: 5px;
 }
+
+.panel-body form > button {
+    margin-top: 10px;
+}
