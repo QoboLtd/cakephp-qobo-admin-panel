@@ -28,7 +28,10 @@ use Cake\Core\Configure;
             'name' => MENU_TOP,
             'renderAs' => [
                 'menuStart' => '<ul class="nav navbar-top-links navbar-right">',
-                'item' => '<a href="%url%">%label%</a>',
+                'childMenuStart' => '<ul class="dropdown-menu">',
+                'itemStart' => '<li class="dropdown">',
+                'item' => '<a href="%url%"><i class="fa fa-%icon%"></i> %label%</a>',
+                'itemWithChildren' => '<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-%icon%"></i> %label% <i class="fa fa-caret-down"></i></a>',
             ]
         ]);
     ?>
@@ -40,8 +43,10 @@ use Cake\Core\Configure;
                 [
                     'name' => MENU_SIDEBAR,
                     'renderAs' => [
-                        'menuStart' => '<ul class="nav">',
-                        'item' => '<a href="%url%">%label%</a>',
+                        'menuStart' => '<ul class="nav metismenu">',
+                        'childMenuStart' => '<ul class="nav nav-second-level collapse">',
+                        'item' => '<a href="%url%"><i class="fa fa-%icon%"></i> %label%</a>',
+                        'itemWithChildren' => '<a href="%url%"><i class="fa fa-%icon%"></i> %label% <span class="fa arrow"></span></a>',
                     ]
                 ]);
             ?>
