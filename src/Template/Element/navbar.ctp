@@ -54,7 +54,11 @@ use Cake\Core\Configure;
         <!-- /.sidebar-collapse -->
     </div>
     <ul class="nav navbar-top-links navbar-right">
-        <?= $this->element('QoboAdminPanel.messages'); ?>
+        <?php
+        $unreadMessagesElement = 'MessagingCenter.unread_messages';
+        if ($this->elementExists($unreadMessagesElement)) {
+            echo $this->element($unreadMessagesElement);
+        } ?>
     </ul>
     <?= $this->element('QoboAdminPanel.search'); ?>
     <!-- /.navbar-static-side -->
