@@ -16,7 +16,7 @@ bin/cake plugin load QoboAdminPanel
 
 ```
 In the AppView add:
-```
+```php
 public $layout = 'QoboAdminPanel.basic';
 ```
 
