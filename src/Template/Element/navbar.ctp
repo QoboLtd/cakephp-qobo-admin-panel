@@ -10,16 +10,7 @@ use Cake\Core\Configure;
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <?php
-            $logoImageUrl = 'QoboAdminPanel.logo.png';
-            if (file_exists(WWW_ROOT . 'img' . DS . 'logo.png')) {
-                $logoImageUrl = 'logo.png';
-            }
-            echo $this->Html->image($logoImageUrl, [
-                'alt' => 'Site Logo',
-                'url' => '#'
-            ]);
-        ?>
+        <?= $this->element('QoboAdminPanel.logo'); ?>
     </div>
     <!-- /.navbar-header -->
     <?= $this->element(
