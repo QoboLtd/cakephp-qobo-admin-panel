@@ -10,7 +10,7 @@ use Cake\Core\Configure;
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <?php $this->element('logo'); ?>
+        <?= $this->element('QoboAdminPanel.logo'); ?>
     </div>
     <!-- /.navbar-header -->
     <?= $this->element(
