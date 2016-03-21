@@ -7,7 +7,6 @@ if (file_exists(WWW_ROOT . 'img' . DS . 'logo.png')) {
 }
 
 $url = '/';
-
 if (Configure::check('Admin.panel.url')) {
     $url = Configure::read('Admin.panel.url');
 }
