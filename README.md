@@ -24,6 +24,14 @@ public $layout = 'QoboAdminPanel.basic';
 
 Examples can be found under the Layout folder.
 
+## Configurations
+
+Update logo URL
+```php
+Configure::write(['Admin.panel.url' => '/admin']);
+```
+
+
 ## ToDos
 
 1. Add test cases
