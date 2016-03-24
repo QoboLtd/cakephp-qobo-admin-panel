@@ -38,10 +38,16 @@ an element. You can use it as follows:
 ```php
 <?= $this->element('QoboAdminPanel.datepicker', ['options' => ['fieldName' => 'foobar']]); ?>
 ```
-Others options are:
-- fieldName - name of the field - Mandatory
-- icon - glyphicon name
-- type - possible types: timepicker, datepicker, and datetimepicker.
+All options are:
+- fieldName
+    - description: name of the field
+    - default value: ```php null ```
+- icon
+    - description: glyphicon name
+    - default: calendar
+- type
+    - description: timepicker, datepicker, and datetimepicker.
+    - default: datepicker
 
 ## ToDos
 
