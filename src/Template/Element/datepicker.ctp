@@ -9,15 +9,4 @@ $datepickerId = isset($datepickerId) ? $datepickerId : 'datepicker' . rand();
         </span>
     </div>
 </div>
-<?php
-$this->Html->scriptStart(['block' => 'scriptBottom']);
-$string = <<< EOT
-$(function () {
-    $('#{$datepickerId}').datetimepicker({
-        //Set your options here.
-        //@link
-    });
-});
-EOT;
-echo $string;
-$this->Html->scriptEnd();
+<?= $this->Html->script('QoboAdminPanel.datepickers', ['block' => 'scriptBottom']); ?>
