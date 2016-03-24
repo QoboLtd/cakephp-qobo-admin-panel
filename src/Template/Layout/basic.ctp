@@ -11,6 +11,7 @@
 
     <!-- Application's stylesheets -->
     <?= $this->Html->css('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', ['block' => true]); ?>
+    <?= $this->Html->css('QoboAdminPanel.bootstrap-datetimepicker', ['block' => true]); ?>
     <?= $this->Html->css('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css', ['block' => true]); ?>
     <?= $this->Html->css('QoboAdminPanel.metisMenu.min', ['block' => true]); ?>
     <?= $this->Html->css('QoboAdminPanel.timeline', ['block' => true]) ?>
@@ -36,7 +37,10 @@
     <!-- /#wrapper -->
     <!-- Application's client functionality -->
     <?= $this->Html->script('https://code.jquery.com/jquery-2.1.4.min.js', ['block' => true]); ?>
+    <?= $this->Html->script('QoboAdminPanel.moment.min', ['block' => true]); ?>
+    <?= $this->Html->script('QoboAdminPanel.momentConfig', ['block' => true]); ?>
     <?= $this->Html->script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', ['block' => true]); ?>
+    <?= $this->Html->script('QoboAdminPanel.bootstrap-datetimepicker', ['block' => true]); ?>
     <?= $this->Html->script('QoboAdminPanel.metisMenu.min', ['block' => true]); ?>
     <?= $this->Html->script('QoboAdminPanel.sb-admin-2', ['block' => true]); ?>
     <?= $this->fetch('script'); ?>

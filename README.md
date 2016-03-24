@@ -7,7 +7,6 @@ The plugin comes with one layout which is based on Start Bootstrap - SB Admin 2 
 Install plugin
 ```
 composer require qobo/cakephp-qobo-admin-panel
-
 ```
 Load plugin
 
@@ -31,6 +30,24 @@ Update logo URL
 Configure::write(['Admin.panel.url' => '/admin']);
 ```
 
+## Datepicker
+
+The theme comes with [datepicker JS library](https://eonasdan.github.io/bootstrap-datetimepicker/) which is wrapped in
+an element. You can use it as follows:
+
+```php
+<?= $this->element('QoboAdminPanel.datepicker', ['options' => ['fieldName' => 'foobar']]); ?>
+```
+All options are:
+- fieldName
+    - description: name of the field
+    - default value: ``` null ```
+- icon
+    - description: glyphicon name
+    - default: calendar
+- type
+    - description: timepicker, datepicker, and datetimepicker.
+    - default: datepicker
 
 ## ToDos
 
