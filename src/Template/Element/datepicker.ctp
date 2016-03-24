@@ -8,7 +8,7 @@ if (!is_array($options)) {
     $options = [];
     $options['fieldName'] = $fieldName;
 }
-$options += ['fieldName' => null, 'groupAddon' =>'calendar', 'type' => 'datepicker'];
+$options += ['fieldName' => null, 'icon' =>'calendar', 'type' => 'datepicker'];
 
 // We do not proceed without the fieldName.
 if (is_null($options['fieldName'])) {
@@ -20,9 +20,9 @@ extract($options);
 <div class="form-group">
     <div class='input-group date <?= $type ?>'>
         <input type='text' class="form-control" name="<?= $fieldName ?>" />
-        <?php if ($groupAddon) : ?>
+        <?php if ($icon) : ?>
             <span class="input-group-addon">
-                <span class="glyphicon glyphicon-<?= $groupAddon ?>"></span>
+                <span class="glyphicon glyphicon-<?= $icon ?>"></span>
             </span>
         <?php endif; ?>
     </div>

@@ -40,7 +40,7 @@ an element. You can use it as follows:
 ```
 Others options are:
 - fieldName - name of the field - Mandatory
-- groupAddon - glyphicon name
+- icon - glyphicon name
 - type - possible types: timepicker, datepicker, and datetimepicker.
 
 ## ToDos
