@@ -41,7 +41,7 @@ an element. You can use it as follows:
 All options are:
 - fieldName
     - description: name of the field
-    - default value: ```php null ```
+    - default value: ``` null ```
 - icon
     - description: glyphicon name
     - default: calendar
