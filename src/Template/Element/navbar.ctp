@@ -51,6 +51,11 @@ use Cake\Core\Configure;
             echo $this->element($unreadMessagesElement);
         } ?>
     </ul>
-    <?= $this->element('QoboAdminPanel.search'); ?>
+    <?php
+        $searchFormElement = 'Search.basic_search';
+        if ($this->elementExists($searchFormElement)) {
+            echo $this->element($searchFormElement);
+        }
+    ?>
     <!-- /.navbar-static-side -->
 </nav>
