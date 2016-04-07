@@ -12,6 +12,7 @@
     <!-- Application's stylesheets -->
     <?= $this->Html->css('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', ['block' => true]); ?>
     <?= $this->Html->css('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css', ['block' => true]); ?>
+    <?= $this->Html->css('QoboAdminPanel.plain', ['block' => true]) ?>
     <?= $this->fetch('css') ?>
 </head>
 <body>
