@@ -8,7 +8,12 @@ if (!is_array($options)) {
     $options = [];
     $options['fieldName'] = $fieldName;
 }
-$options += ['fieldName' => null, 'icon' =>'calendar', 'type' => 'datepicker'];
+$options += [
+    'fieldName' => null,
+    'icon' =>'calendar',
+    'type' => 'datepicker',
+    'label' => false
+];
 
 // We do not proceed without the fieldName.
 if (is_null($options['fieldName'])) {
@@ -18,6 +23,9 @@ if (is_null($options['fieldName'])) {
 extract($options);
 ?>
 <div class="form-group">
+    <?php if ($label) : ?>
+        <?= $this->Form->label($fieldName); ?>
+    <?php endif; ?>
     <div class='input-group date <?= $type ?>'>
         <input type='text' class="form-control" name="<?= $fieldName ?>" />
         <?php if ($icon) : ?>
