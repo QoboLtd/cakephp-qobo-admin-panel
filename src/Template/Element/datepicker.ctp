@@ -27,4 +27,3 @@ extract($options);
         <?php endif; ?>
     </div>
 </div>
-<?= $this->Html->script('QoboAdminPanel.datepickers', ['block' => 'scriptBottom']); ?>
