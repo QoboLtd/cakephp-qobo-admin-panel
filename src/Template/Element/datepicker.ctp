@@ -13,7 +13,8 @@ $options += [
     'icon' =>'calendar',
     'type' => 'datepicker',
     'label' => false,
-    'required' => false
+    'required' => false,
+    'value' => null
 ];
 
 // We do not proceed without the fieldName.
