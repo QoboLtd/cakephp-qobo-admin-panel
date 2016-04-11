@@ -8,7 +8,14 @@ if (!is_array($options)) {
     $options = [];
     $options['fieldName'] = $fieldName;
 }
-$options += ['fieldName' => null, 'icon' =>'calendar', 'type' => 'datepicker'];
+$options += [
+    'fieldName' => null,
+    'icon' =>'calendar',
+    'type' => 'datepicker',
+    'label' => false,
+    'required' => false,
+    'value' => null
+];
 
 // We do not proceed without the fieldName.
 if (is_null($options['fieldName'])) {
@@ -16,10 +23,14 @@ if (is_null($options['fieldName'])) {
 }
 
 extract($options);
+$required = $required ? 'required="required"': '';
 ?>
 <div class="form-group">
+    <?php if ($label) : ?>
+        <?= $this->Form->label($fieldName); ?>
+    <?php endif; ?>
     <div class='input-group date <?= $type ?>'>
-        <input type='text' class="form-control" name="<?= $fieldName ?>" />
+        <input type="text" class="form-control" name="<?= $fieldName ?>" <?= $required ?> value="<?= $value ?>" />
         <?php if ($icon) : ?>
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-<?= $icon ?>"></span>
@@ -27,4 +38,3 @@ extract($options);
         <?php endif; ?>
     </div>
 </div>
-<?= $this->Html->script('QoboAdminPanel.datepickers', ['block' => 'scriptBottom']); ?>
