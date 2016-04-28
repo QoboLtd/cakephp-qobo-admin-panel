@@ -18,6 +18,7 @@
     <?= $this->Html->css('QoboAdminPanel.sb-admin-2', ['block' => true]) ?>
     <?= $this->Html->css('QoboAdminPanel.custom', ['block' => true]) ?>
     <?= $this->fetch('css') ?>
+    <?= $this->fetch('cssBottom') ?>
 </head>
 <body>
     <div id="wrapper">
