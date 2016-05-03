@@ -1,6 +1,8 @@
 <?php
+use Cake\Utility\Inflector;
+
 if (empty($title)) {
-    $title = $this->request->params['controller'];
+    $title = ucwords(Inflector::delimit($this->request->params['controller'], ' '));
 }
 ?>
 <div class="row">
