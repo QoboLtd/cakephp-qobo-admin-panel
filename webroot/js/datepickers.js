@@ -8,7 +8,7 @@ $(function () {
     });
 
     $('.datepicker').datetimepicker({
-        format: 'DD/MM/YYYY'
+        format: 'YYYY/MM/DD'
     });
 
     $('.datetimepicker').datetimepicker({
