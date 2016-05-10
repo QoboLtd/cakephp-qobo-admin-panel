@@ -9,7 +9,7 @@ $elements = [
 /**
  * @todo make sidebar better and more dynamic
  */
-if ('view' !== $this->request->params['action'] || 'Notes' === $this->request->params['controller']) {
+if ('view' !== $this->request->params['action'] || 'Notes' === $this->request->params['controller'] || 'Search' === $this->request->plugin) {
 $elements = [];
 }
 
