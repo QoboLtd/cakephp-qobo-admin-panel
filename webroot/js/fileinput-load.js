@@ -11,6 +11,9 @@ $(document).ready(function () {
     var isImg = function (url) {
         return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
     };
+    var setDeleteUrl = function () {
+        return window.location.href.replace('edit', 'unlinkUpload');
+    };
     if ($inputField.length !== 0) {
         var url = $inputField.data('upload-url');
         if (typeof url !== 'undefined' && isImg(url)) {
@@ -21,6 +24,12 @@ $(document).ready(function () {
 
         $inputField.fileinput({
             initialPreview: initPreview.replace('%%url%%', url),
+            initialPreviewConfig: [
+                /**
+                 * @todo Needs to be .json link
+                 */
+                {url: setDeleteUrl()}
+            ],
             showUpload: false,
             removeClass: "btn btn-danger",
             removeLabel: "Delete",
