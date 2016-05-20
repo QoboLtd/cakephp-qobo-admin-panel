@@ -33,7 +33,6 @@ $(document).ready(function () {
             removeClass: "btn btn-danger",
             removeLabel: "Delete",
             removeIcon: "<i class=\"glyphicon glyphicon-trash\"></i> ",
-            previewFileIcon: '<i class="fa fa-file"></i>',
             previewFileIconSettings: {
                 'docx': '<i class="fa fa-file-word-o text-primary"></i>',
                 'xlsx': '<i class="fa fa-file-excel-o text-success"></i>',
