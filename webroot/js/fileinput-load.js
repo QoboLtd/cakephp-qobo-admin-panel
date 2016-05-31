@@ -21,9 +21,10 @@ $(document).ready(function () {
     };
 
     var setDeleteUrl = function () {
-        return window.location.href.replace('edit', 'unlinkUpload');
+        var matches = $inputField.attr('name').match(/\[(\w+)\]\[(\w+)\]/);
+        var fieldName = matches[2];
+        return window.location.href.replace('edit', 'unlinkUpload') + '/' + fieldName;
     };
-
     if ($inputField.length !== 0) {
         var url = $inputField.data('upload-url');
         if (typeof url !== 'undefined' && isImg(url)) {
