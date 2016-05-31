@@ -19,6 +19,11 @@ $(document).ready(function () {
         });
     };
 
+    /**
+     * Static HTML
+     *
+     * @return object
+     */
     FileInput.prototype.staticHtml = function() {
         return {
             previewOtherFile: "<div class='file-preview-text'><h2>" +
@@ -37,6 +42,11 @@ $(document).ready(function () {
         };
     };
 
+    /**
+     * Preview initial preview of the upload field.
+     *
+     * @param string url
+     */
     FileInput.prototype.setInitialPreview = function(url) {
         var initialPreview = '';
         if (this.isImg(url)) {
@@ -57,12 +67,21 @@ $(document).ready(function () {
         return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
     };
 
+    /**
+     * Builds the delete URL
+     * @param string name of the field.
+     */
     FileInput.prototype.setDeleteUrl = function (name) {
         var matches = name.match(/\[(\w+)\]\[(\w+)\]/);
         var fieldName = matches[2];
         this.deleteUrl = window.location.href.replace('edit', 'unlinkUpload') + '/' + fieldName;
     };
 
+    /**
+     * Run the library and build the input fields.
+     *
+     * @param  jQueryObject inputField to build the library on
+     */
     FileInput.prototype.exec = function(inputField) {
         inputField.fileinput({
             initialPreview: this.preview,
