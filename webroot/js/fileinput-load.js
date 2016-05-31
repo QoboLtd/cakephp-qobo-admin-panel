@@ -10,6 +10,12 @@ $(document).ready(function () {
     };
     var $inputField = $("input[type=file]");
 
+    /**
+     * Check for image on the provided URL.
+     *
+     * @param string
+     * @return bool
+     */
     var isImg = function (url) {
         return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
     };
