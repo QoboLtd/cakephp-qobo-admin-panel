@@ -1,14 +1,43 @@
 $(document).ready(function () {
     'use strict';
 
-    var initPreview = '';
-    var html = {
-        previewOtherFile: "<div class='file-preview-text'><h2>" +
-            "<i class='glyphicon glyphicon-file'></i></h2>" +
-            "<a href='%%url%%' target='_blank'>View file</a></div>",
-        img: "<img class='img-responsive' src='%%url%%' alt='img-preview' />"
+    var FileInput = function() {
+        this.html = this.staticHtml();
+        this.preview = '';
+        this.deleteUrl = null;
+        var that = this;
+        $("input[type=file]").each(function(i, v) {
+            var url = $(this).data('upload-url');
+            var name = $(this).attr('name');
+            //continue for the empty ones.
+            if (typeof url == 'undefined') {
+                return true;
+            }
+            that.setInitialPreview(url);
+            that.setDeleteUrl(name);
+            that.exec($(this));
+        });
     };
-    var $inputField = $("input[type=file]");
+
+    FileInput.prototype.staticHtml = function() {
+        return {
+            previewOtherFile: "<div class='file-preview-text'><h2>" +
+                "<i class='glyphicon glyphicon-file'></i></h2>" +
+                "<a href='%%url%%' target='_blank'>View file</a></div>",
+            img: "<img class='img-responsive' src='%%url%%' alt='img-preview' />",
+
+        };
+    };
+
+    FileInput.prototype.setInitialPreview = function(url) {
+        var initialPreview = '';
+        if (this.isImg(url)) {
+            initialPreview = this.html.img;
+        } else {
+            initialPreview = this.html.previewOtherFile;
+        }
+        this.preview = initialPreview.replace('%%url%%', url);
+    };
 
     /**
      * Check for image on the provided URL.
@@ -16,30 +45,21 @@ $(document).ready(function () {
      * @param string
      * @return bool
      */
-    var isImg = function (url) {
+    FileInput.prototype.isImg = function (url) {
         return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
     };
 
-    var setDeleteUrl = function () {
-        var matches = $inputField.attr('name').match(/\[(\w+)\]\[(\w+)\]/);
+    FileInput.prototype.setDeleteUrl = function (name) {
+        var matches = name.match(/\[(\w+)\]\[(\w+)\]/);
         var fieldName = matches[2];
-        return window.location.href.replace('edit', 'unlinkUpload') + '/' + fieldName;
+        this.deleteUrl = window.location.href.replace('edit', 'unlinkUpload') + '/' + fieldName;
     };
-    if ($inputField.length !== 0) {
-        var url = $inputField.data('upload-url');
-        if (typeof url !== 'undefined' && isImg(url)) {
-            initPreview = html.img;
-        } else {
-            initPreview = html.previewOtherFile;
-        }
 
-        $inputField.fileinput({
-            initialPreview: initPreview.replace('%%url%%', url),
+    FileInput.prototype.exec = function(inputField) {
+        inputField.fileinput({
+            initialPreview: this.preview,
             initialPreviewConfig: [
-                /**
-                 * @todo Needs to be .json link
-                 */
-                {url: setDeleteUrl()}
+                {url: this.deleteUrl}
             ],
             removeClass: "btn btn-danger",
             removeLabel: "Delete",
@@ -53,5 +73,7 @@ $(document).ready(function () {
                 'zip': '<i class="fa fa-file-archive-o text-muted"></i>',
             }
         });
-    }
+    };
+
+    new FileInput();
 });
