@@ -1,5 +1,6 @@
 $(document).ready(function () {
     'use strict';
+
     var initPreview = '';
     var html = {
         previewOtherFile: "<div class='file-preview-text'><h2>" +
@@ -8,12 +9,15 @@ $(document).ready(function () {
         img: "<img class='img-responsive' src='%%url%%' alt='img-preview' />"
     };
     var $inputField = $("input[type=file]");
+
     var isImg = function (url) {
         return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
     };
+
     var setDeleteUrl = function () {
         return window.location.href.replace('edit', 'unlinkUpload');
     };
+
     if ($inputField.length !== 0) {
         var url = $inputField.data('upload-url');
         if (typeof url !== 'undefined' && isImg(url)) {
