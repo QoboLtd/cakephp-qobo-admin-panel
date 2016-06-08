@@ -53,7 +53,7 @@ use Cake\Core\Configure;
     </ul>
     <?php
         $searchFormElement = 'Search.basic_search';
-        if ($this->elementExists($searchFormElement)) {
+        if ($this->elementExists($searchFormElement) && Configure::read('Admin.search')) {
             echo $this->element($searchFormElement);
         }
     ?>
