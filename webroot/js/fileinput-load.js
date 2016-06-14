@@ -1,3 +1,6 @@
+var files;
+var uploadFieldName;
+
 $(document).ready(function () {
     'use strict';
 
@@ -12,7 +15,10 @@ $(document).ready(function () {
         } else {
             this.createNew(field);
         }
-
+        field.on('change', function(e) {
+            uploadFieldName = $(this).attr('name');
+            files = e.target.files;
+        });
     };
 
     /**
