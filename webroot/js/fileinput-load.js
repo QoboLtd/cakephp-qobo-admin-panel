@@ -1,21 +1,23 @@
+var files;
+var uploadFieldName;
+
 $(document).ready(function () {
     'use strict';
 
-    var FileInput = function() {
+    var FileInput = function(url, name, field, existing) {
         this.html = this.staticHtml();
         this.preview = '';
         this.deleteUrl = null;
-        var that = this;
-        $("input[type=file]").each(function(i, v) {
-            var url = $(this).data('upload-url');
-            var name = $(this).attr('name');
-            //continue for the empty ones.
-            if (typeof url == 'undefined') {
-                return true;
-            }
-            that.setInitialPreview(url);
-            that.setDeleteUrl(name);
-            that.exec($(this));
+        if (!existing) {
+            this.setInitialPreview(url);
+            this.setDeleteUrl(name);
+            this.createFromExisting(field);
+        } else {
+            this.createNew(field);
+        }
+        field.on('change', function(e) {
+            uploadFieldName = $(this).attr('name');
+            files = e.target.files;
         });
     };
 
@@ -78,11 +80,25 @@ $(document).ready(function () {
     };
 
     /**
-     * Run the library and build the input fields.
+     * Creates new instance of fileinput.
      *
      * @param  jQueryObject inputField to build the library on
      */
-    FileInput.prototype.exec = function(inputField) {
+    FileInput.prototype.createNew = function(inputField) {
+        inputField.fileinput({
+            showUpload: false,
+            uploadUrl: "/crm-re/api/documents/add.json",
+            uploadAsync: true,
+            maxFileCount: 5
+        });
+    };
+
+    /**
+     * Creates file input from existings files.
+     *
+     * @param  jQueryObject inputField to build the library on
+     */
+    FileInput.prototype.createFromExisting = function(inputField) {
         inputField.fileinput({
             initialPreview: this.preview,
             initialPreviewConfig: [
@@ -95,5 +111,13 @@ $(document).ready(function () {
         });
     };
 
-    new FileInput();
+    $("input[type=file]").each(function() {
+        var url = $(this).data('upload-url');
+        var name = $(this).attr('name');
+        var existing = false;
+        if (typeof url == 'undefined') {
+            existing = true;
+        }
+        var fi = new FileInput(url, name, $(this), existing);
+    });
 });
