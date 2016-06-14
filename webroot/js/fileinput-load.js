@@ -86,7 +86,8 @@ $(document).ready(function () {
      */
     FileInput.prototype.createNew = function(inputField) {
         inputField.fileinput({
-            uploadUrl: "http://localhost:8765/crm-re/documents/add.json",
+            showUpload: false,
+            uploadUrl: "/crm-re/api/documents/add.json",
             uploadAsync: true,
             maxFileCount: 5
         });
