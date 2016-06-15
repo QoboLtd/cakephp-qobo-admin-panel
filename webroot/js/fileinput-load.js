@@ -87,9 +87,7 @@ $(document).ready(function () {
     FileInput.prototype.createNew = function(inputField) {
         inputField.fileinput({
             showUpload: false,
-            uploadUrl: "/crm-re/api/documents/add.json",
-            uploadAsync: true,
-            maxFileCount: 5
+            maxFileCount: 5,
         });
     };
 
