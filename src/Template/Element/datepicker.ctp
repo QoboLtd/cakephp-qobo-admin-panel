@@ -30,7 +30,7 @@ $required = $required ? 'required="required"': '';
         <?= $this->Form->label($fieldName); ?>
     <?php endif; ?>
     <div class='input-group date <?= $type ?>'>
-        <?= $this->Form->input($fieldName, ['label' => false, 'value' => $value, 'required' => $required]) ?>
+        <input class="form-control" type="text" name="<?= $fieldName?>" <?= $required ?> value="<?= $value ?>">
         <?php if ($icon) : ?>
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-<?= $icon ?>"></span>
