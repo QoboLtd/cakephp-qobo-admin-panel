@@ -1,5 +1,6 @@
 <?php
 use Cake\Core\Configure;
+use Cake\Event\Event;
 ?>
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -52,9 +53,16 @@ use Cake\Core\Configure;
         } ?>
     </ul>
     <?php
-        $searchFormElement = 'Search.basic_search';
-        if ($this->elementExists($searchFormElement) && Configure::read('Admin.search')) {
-            echo $this->element($searchFormElement);
+        /**
+         * Top Menu event
+         * @var Event
+         */
+        $event = new Event('QoboAdminPanel.Element.Navbar.Menu.Top', $this, [
+            'request' => $this->request
+        ]);
+        $this->eventManager()->dispatch($event);
+        if (!empty($event->result)) {
+            echo $event->result;
         }
     ?>
     <!-- /.navbar-static-side -->
