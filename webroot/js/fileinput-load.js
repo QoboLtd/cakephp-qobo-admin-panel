@@ -87,7 +87,7 @@ $(document).ready(function () {
     FileInput.prototype.createNew = function(inputField) {
         inputField.fileinput({
             showUpload: false,
-            maxFileCount: 5,
+            maxFileCount: 30,
         });
     };
 
