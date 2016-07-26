@@ -94,10 +94,9 @@ $(document).ready(function () {
      * @param  jQueryObject inputField to build the library on
      */
     FileInput.prototype.createNew = function(inputField) {
-        inputField.fileinput({
-            showUpload: false,
-            maxFileCount: 30,
-        });
+        var createNew = {};
+        var options = $.extend({}, this.defaults(), createNew);
+        inputField.fileinput(options);
     };
 
     /**
@@ -105,17 +104,16 @@ $(document).ready(function () {
      *
      * @param  jQueryObject inputField to build the library on
      */
-    FileInput.prototype.createFromExisting = function(inputField) {
-        inputField.fileinput({
-            initialPreview: this.preview,
-            initialPreviewConfig: [
-                {url: this.deleteUrl}
-            ],
-            removeClass: "btn btn-danger",
-            removeLabel: "Delete",
-            removeIcon: this.html.trash,
-            previewFileIconSettings: this.html.icons
-        });
+    FileInput.prototype.createFromExisting = function(inputField, paths) {
+        var existing = {
+            initialPreview: null,
+            initialPreviewAsData: true,
+            //Keep existing images on adding new images.
+            overwriteInitial: false,
+        };
+        existing.initialPreview = paths.split(',');
+        var options = $.extend({}, this.defaults(), existing);
+        inputField.fileinput(options);
     };
 
     $("input[type=file]").each(function() {
