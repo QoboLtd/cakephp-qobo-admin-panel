@@ -4,14 +4,10 @@ var uploadFieldName;
 $(document).ready(function () {
     'use strict';
 
-    var FileInput = function(url, name, field, existing) {
+    var FileInput = function(paths, name, field) {
         this.html = this.staticHtml();
-        this.preview = '';
-        this.deleteUrl = null;
-        if (!existing) {
-            this.setInitialPreview(url);
-            this.setDeleteUrl(name);
-            this.createFromExisting(field);
+        if (typeof paths !== 'undefined') {
+            this.createFromExisting(field, paths);
         } else {
             this.createNew(field);
         }
@@ -110,12 +106,8 @@ $(document).ready(function () {
     };
 
     $("input[type=file]").each(function() {
-        var url = $(this).data('upload-url');
+        var paths = $(this).data('upload-paths');
         var name = $(this).attr('name');
-        var existing = false;
-        if (typeof url == 'undefined') {
-            existing = true;
-        }
-        var fi = new FileInput(url, name, $(this), existing);
+        var fi = new FileInput(paths, name, $(this));
     });
 });
