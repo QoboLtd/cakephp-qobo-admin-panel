@@ -76,6 +76,19 @@ $(document).ready(function () {
     };
 
     /**
+     * Plugin's default options.
+     *
+     * @return object Plugin's default options
+     */
+    FileInput.prototype.defaults = function() {
+        return {
+            showUpload: false,
+            maxFileCount: 30,
+            maxFileSize: 2000,
+        };
+    };
+
+    /**
      * Creates new instance of fileinput.
      *
      * @param  jQueryObject inputField to build the library on
