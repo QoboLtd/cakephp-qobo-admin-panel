@@ -4,10 +4,13 @@ var uploadFieldName;
 $(document).ready(function () {
     'use strict';
 
-    var FileInput = function(paths, name, field) {
+    var FileInput = function(files, name, field) {
         this.html = this.staticHtml();
-        if (typeof paths !== 'undefined') {
-            this.createFromExisting(field, paths);
+        this.options = {};
+        if (typeof files === 'object') {
+            // this.initialConfigPreview(files);
+            this.initialPreview(files);
+            this.createFromExisting(field);
         } else {
             this.createNew(field);
         }
@@ -88,6 +91,24 @@ $(document).ready(function () {
         };
     };
 
+    FileInput.prototype.initialConfigPreview = function(files) {
+        var config = {};
+        this.options.initialPreviewConfig = new Array;
+        for (var i in files) {
+            var file = files[i];
+            var ipcOptions = $.extend({}, config, {key: i});
+            this.options.initialPreviewConfig.push(ipcOptions);
+        }
+    };
+
+    FileInput.prototype.initialPreview = function(files) {
+        this.options.initialPreview = new Array;
+        for (var i in files) {
+            var file = files[i];
+            this.options.initialPreview.push(file.path);
+        }
+    };
+
     /**
      * Creates new instance of fileinput.
      *
@@ -106,19 +127,19 @@ $(document).ready(function () {
      */
     FileInput.prototype.createFromExisting = function(inputField, paths) {
         var existing = {
-            initialPreview: null,
+            initialPreview: this.options.initialPreview,
             initialPreviewAsData: true,
             //Keep existing images on adding new images.
             overwriteInitial: false,
         };
-        existing.initialPreview = paths.split(',');
         var options = $.extend({}, this.defaults(), existing);
         inputField.fileinput(options);
     };
 
+
     $("input[type=file]").each(function() {
-        var paths = $(this).data('upload-paths');
+        var files = $(this).data('files');
         var name = $(this).attr('name');
-        var fi = new FileInput(paths, name, $(this));
+        var fi = new FileInput(files, name, $(this));
     });
 });
