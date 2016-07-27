@@ -4,14 +4,10 @@ var uploadFieldName;
 $(document).ready(function () {
     'use strict';
 
-    var FileInput = function(url, name, field, existing) {
+    var FileInput = function(paths, name, field) {
         this.html = this.staticHtml();
-        this.preview = '';
-        this.deleteUrl = null;
-        if (!existing) {
-            this.setInitialPreview(url);
-            this.setDeleteUrl(name);
-            this.createFromExisting(field);
+        if (typeof paths !== 'undefined') {
+            this.createFromExisting(field, paths);
         } else {
             this.createNew(field);
         }
@@ -80,15 +76,27 @@ $(document).ready(function () {
     };
 
     /**
+     * Plugin's default options.
+     *
+     * @return object Plugin's default options
+     */
+    FileInput.prototype.defaults = function() {
+        return {
+            showUpload: false,
+            maxFileCount: 30,
+            maxFileSize: 2000,
+        };
+    };
+
+    /**
      * Creates new instance of fileinput.
      *
      * @param  jQueryObject inputField to build the library on
      */
     FileInput.prototype.createNew = function(inputField) {
-        inputField.fileinput({
-            showUpload: false,
-            maxFileCount: 30,
-        });
+        var createNew = {};
+        var options = $.extend({}, this.defaults(), createNew);
+        inputField.fileinput(options);
     };
 
     /**
@@ -96,26 +104,21 @@ $(document).ready(function () {
      *
      * @param  jQueryObject inputField to build the library on
      */
-    FileInput.prototype.createFromExisting = function(inputField) {
-        inputField.fileinput({
-            initialPreview: this.preview,
-            initialPreviewConfig: [
-                {url: this.deleteUrl}
-            ],
-            removeClass: "btn btn-danger",
-            removeLabel: "Delete",
-            removeIcon: this.html.trash,
-            previewFileIconSettings: this.html.icons
-        });
+    FileInput.prototype.createFromExisting = function(inputField, paths) {
+        var existing = {
+            initialPreview: null,
+            initialPreviewAsData: true,
+            //Keep existing images on adding new images.
+            overwriteInitial: false,
+        };
+        existing.initialPreview = paths.split(',');
+        var options = $.extend({}, this.defaults(), existing);
+        inputField.fileinput(options);
     };
 
     $("input[type=file]").each(function() {
-        var url = $(this).data('upload-url');
+        var paths = $(this).data('upload-paths');
         var name = $(this).attr('name');
-        var existing = false;
-        if (typeof url == 'undefined') {
-            existing = true;
-        }
-        var fi = new FileInput(url, name, $(this), existing);
+        var fi = new FileInput(paths, name, $(this));
     });
 });
