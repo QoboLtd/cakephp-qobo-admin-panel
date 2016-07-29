@@ -1,6 +1,3 @@
-var files;
-var uploadFieldName;
-
 $(document).ready(function () {
     'use strict';
 
@@ -8,15 +5,14 @@ $(document).ready(function () {
         this.html = this.staticHtml();
         this.options = {};
         if (typeof files === 'object') {
-            // this.initialConfigPreview(files);
             this.initialPreview(files);
             this.createFromExisting(field);
         } else {
             this.createNew(field);
         }
         field.on('change', function(e) {
-            uploadFieldName = $(this).attr('name');
-            files = e.target.files;
+            //Trigger the updateFiles Event and pass all the collected uploads
+            $(document).trigger('updateFiles', [e.target.files, $(this).attr('name')]);
         });
     };
 
