@@ -3,10 +3,12 @@ $(document).ready(function () {
 
     var FileInput = function(files, name, field) {
         this.html = this.staticHtml();
+        this.api_token = api_options.hasOwnProperty('token') ? api_options.token : null;
         this.options = {};
         if (typeof files === 'object') {
             this.initialPreview(files);
-            this.createFromExisting(field);
+            this.initialPreviewConfig(files);
+            this.createFromExisting(files, field);
         } else {
             this.createNew(field);
         }
@@ -87,12 +89,12 @@ $(document).ready(function () {
         };
     };
 
-    FileInput.prototype.initialConfigPreview = function(files) {
+    FileInput.prototype.initialPreviewConfig = function(files) {
         var config = {};
         this.options.initialPreviewConfig = new Array;
         for (var i in files) {
             var file = files[i];
-            var ipcOptions = $.extend({}, config, {key: i});
+            var ipcOptions = $.extend({}, config, {key: i, url: '/api/documents/delete/' + file.id});
             this.options.initialPreviewConfig.push(ipcOptions);
         }
     };
@@ -121,12 +123,21 @@ $(document).ready(function () {
      *
      * @param  jQueryObject inputField to build the library on
      */
-    FileInput.prototype.createFromExisting = function(inputField, paths) {
+    FileInput.prototype.createFromExisting = function(files, inputField) {
         var existing = {
             initialPreview: this.options.initialPreview,
+            initialPreviewConfig: this.options.initialPreviewConfig,
             initialPreviewAsData: true,
             //Keep existing images on adding new images.
             overwriteInitial: false,
+            ajaxDeleteSettings: {
+                type: 'delete',
+                dataType: 'json',
+                contentType: 'application/json',
+                headers: {
+                    'Authorization': 'Bearer ' + that.api_token
+                },
+            }
         };
         var options = $.extend({}, this.defaults(), existing);
         inputField.fileinput(options);
