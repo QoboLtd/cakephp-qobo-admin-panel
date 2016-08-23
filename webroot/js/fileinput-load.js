@@ -94,7 +94,7 @@ $(document).ready(function () {
         this.options.initialPreviewConfig = new Array;
         for (var i in files) {
             var file = files[i];
-            var ipcOptions = $.extend({}, config, {key: i, url: '/api/documents/delete/' + file.id});
+            var ipcOptions = $.extend({}, config, {key: i, url: '/api/documents/delete_file/' + file.id});
             this.options.initialPreviewConfig.push(ipcOptions);
         }
     };
