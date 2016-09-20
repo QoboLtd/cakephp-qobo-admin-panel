@@ -22,6 +22,10 @@ if (empty($name)) {
 if (empty($link)) {
     $link = ['plugin' => $this->request->plugin, 'controller' => $this->request->controller, 'action' => 'add'];
 }
+
+if (empty($backLink)) {
+    $backLink = $this->request->referer();
+}
 ?>
 <div class="row">
     <?php if ($showOptions['title']) : ?>
@@ -38,6 +42,15 @@ if (empty($link)) {
                         __('Add {0}', $name),
                         $link,
                         ['class' => 'btn btn-primary']
+                    );
+                ?>
+            <?php endif; ?>
+            <?php if ($showOptions['back']) : ?>
+                <?php
+                    echo $this->Html->link(
+                        __('Back'),
+                        $backLink,
+                        ['class' => 'btn btn-default']
                     );
                 ?>
             <?php endif; ?>
