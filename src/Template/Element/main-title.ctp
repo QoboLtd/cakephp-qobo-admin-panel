@@ -39,7 +39,7 @@ if (empty($backLink)) {
             <?php if ($showOptions['add']) : ?>
                 <?php
                     echo $this->Html->link(
-                        __('Add {0}', $name),
+                        __d('QoboAdminPanel', 'Add {0}', $name),
                         $link,
                         ['class' => 'btn btn-primary']
                     );
@@ -48,7 +48,7 @@ if (empty($backLink)) {
             <?php if ($showOptions['back']) : ?>
                 <?php
                     echo $this->Html->link(
-                        __('Back'),
+                        __d('QoboAdminPanel', 'Back'),
                         $backLink,
                         ['class' => 'btn btn-default']
                     );
