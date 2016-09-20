@@ -1,5 +1,11 @@
-<?= $this->element('QoboAdminPanel.main-title', ['title' => $this->fetch('title')]); ?>
-<!-- /.row -->
+<?php
+if (!$this->fetch('main-title')) {
+    $this->start('main-title');
+    echo $this->element('QoboAdminPanel.main-title', ['title' => $this->fetch('title')]);
+    $this->end('main-title');
+}
+?>
+<?= $this->fetch('main-title'); ?>
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
