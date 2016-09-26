@@ -23,7 +23,6 @@ if (is_null($options['fieldName'])) {
 }
 
 extract($options);
-$required = $required ? 'required="required"': '';
 ?>
 <div class="form-group">
     <?php if ($label) : ?>
