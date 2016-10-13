@@ -8,10 +8,10 @@ $(function () {
     });
 
     $('.datepicker').datetimepicker({
-        format: 'YYYY/MM/DD'
+        format: 'YYYY-MM-DD'
     });
 
     $('.datetimepicker').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm:ss',
+        format: 'YYYY-MM-DD HH:mm:ss'
     });
 });
