@@ -1,63 +1,37 @@
+<?php
+use Cake\Event\Event;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title><?= h($this->fetch('title')) ?></title>
-
-    <!-- Application's stylesheets -->
-    <?= $this->Html->css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', ['block' => true]); ?>
-    <?= $this->Html->css('QoboAdminPanel.bootstrap-datetimepicker', ['block' => true]); ?>
-    <?= $this->Html->css('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css', ['block' => true]); ?>
-    <?= $this->Html->css('QoboAdminPanel.metisMenu.min', ['block' => true]); ?>
-    <?= $this->Html->css('QoboAdminPanel.timeline', ['block' => true]) ?>
-    <?= $this->Html->css('QoboAdminPanel.sb-admin-2', ['block' => true]) ?>
-    <?= $this->Html->css('QoboAdminPanel.custom', ['block' => true]) ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('cssBottom') ?>
+<?php
+    $event = new Event('QoboAdminPanel.Layout.Head', $this);
+    $this->eventManager()->dispatch($event);
+    echo $event->result;
+?>
 </head>
 <body>
     <div id="wrapper">
-
-        <?= $this->element('QoboAdminPanel.navbar') ?>
-
+    <?php
+        $event = new Event('QoboAdminPanel.Layout.Header', $this);
+        $this->eventManager()->dispatch($event);
+        echo $event->result;
+    ?>
         <div id="page-wrapper">
-            <div class="row">
-                <?php
-                    $sidebarContent = trim($this->element('QoboAdminPanel.sidebar'));
-                    $hasSidebar = '' === $sidebarContent ? false : true;
-                ?>
-                <div class="<?= $hasSidebar ? 'col-xs-12 col-md-8 col-lg-9' : 'col-xs-12'; ?>">
-                    <div class="feedback-message">
-                        <?= $this->Flash->render(); ?>
-                        <?= $this->Flash->render('auth') ?>
-                    </div>
-                    <?= $this->fetch('content') ?>
-                </div>
-                <div class="<?= $hasSidebar ? 'col-xs-12 col-md-4 col-lg-3' : 'col-xs-12'; ?> right-sidebar">
-                    <?= $sidebarContent ?>
-                </div>
-            </div>
+        <?php
+            $event = new Event('QoboAdminPanel.Layout.Content', $this);
+            $this->eventManager()->dispatch($event);
+            echo $event->result;
+        ?>
         </div>
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
-    <!-- Application's client functionality -->
-    <?= $this->Html->script('https://code.jquery.com/jquery-2.1.4.min.js', ['block' => true]); ?>
-    <?= $this->Html->script('https://code.jquery.com/ui/1.11.4/jquery-ui.min.js', ['block' => true]) ?>
-    <?= $this->Html->script('QoboAdminPanel.moment.min', ['block' => true]); ?>
-    <?= $this->Html->script('QoboAdminPanel.momentConfig', ['block' => true]); ?>
-    <?= $this->Html->script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', ['block' => true]); ?>
-    <?= $this->Html->script('QoboAdminPanel.bootstrap-datetimepicker', ['block' => true]); ?>
-    <?= $this->Html->script('QoboAdminPanel.datepickers', ['block' => true]); ?>
-    <?= $this->Html->script('QoboAdminPanel.metisMenu.min', ['block' => true]); ?>
-    <?= $this->Html->script('QoboAdminPanel.sb-admin-2', ['block' => true]); ?>
-    <?= $this->fetch('script'); ?>
-    <?= $this->fetch('scriptBottom'); ?>
+<?php
+    $event = new Event('QoboAdminPanel.Layout.Footer', $this);
+    $this->eventManager()->dispatch($event);
+    echo $event->result;
+?>
 </body>
 </html>
