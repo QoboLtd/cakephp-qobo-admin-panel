@@ -1,5 +1,12 @@
 # QoboAdminPanel plugin for CakePHP 3
 
+[![Build Status](https://travis-ci.org/QoboLtd/cakephp-qobo-admin-panel.svg?branch=master)](https://travis-ci.org/QoboLtd/cakephp-qobo-admin-panel)
+[![Latest Stable Version](https://poser.pugx.org/qobo/cakephp-qobo-admin-panel/v/stable)](https://packagist.org/packages/qobo/cakephp-qobo-admin-panel)
+[![Total Downloads](https://poser.pugx.org/qobo/cakephp-qobo-admin-panel/downloads)](https://packagist.org/packages/qobo/cakephp-qobo-admin-panel)
+[![Latest Unstable Version](https://poser.pugx.org/qobo/cakephp-qobo-admin-panel/v/unstable)](https://packagist.org/packages/qobo/cakephp-qobo-admin-panel)
+[![License](https://poser.pugx.org/qobo/cakephp-qobo-admin-panel/license)](https://packagist.org/packages/qobo/cakephp-qobo-admin-panel)
+[![codecov](https://codecov.io/gh/QoboLtd/cakephp-qobo-admin-panel/branch/master/graph/badge.svg)](https://codecov.io/gh/QoboLtd/cakephp-qobo-admin-panel)
+
 The plugin comes with one layout which is based on Start Bootstrap - SB Admin 2 Bootstrap Admin Theme (https://github.com/BlackrockDigital/startbootstrap-sb-admin-2).
 
 ## Setup
@@ -31,7 +38,7 @@ namespace App\View;
 use BootstrapUI\View\UIView;
 class AppView extends UIView
 {
-    //Loads Admin panel layout 
+    //Loads Admin panel layout
     public $layout = 'QoboAdminPanel.basic';
 
     public function initialize()
