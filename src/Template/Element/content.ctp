@@ -11,11 +11,14 @@
         <?= $this->fetch('content') ?>
     </div>
     <div class="<?= $hasSidebar ? 'col-xs-12 col-md-4 col-lg-3' : 'col-xs-12'; ?> right-sidebar wrapper">
+    <?php if($hasSidebar): ?>
+        <a href="#" data-toggle="offcanvas" id="sidebar-toggler"><i class="fa fa-angle-double-right fa-2x"></i></a>
+        <br/>
         <div class="row row-offcanvas row-offcanvas-left">
-            <a href="#" role="tab" data-toggle="offcanvas" id="sidebar-toggler"><i class="fa fa-angle-double-right fa-2x"></i></a>
             <div class="column sidebar-offcanvas sidebar-collapse" id="sidebar">
                 <?= $sidebarContent ?>
             </div>
         </div>
     </div>
+    <?php endif; ?>
 </div>
