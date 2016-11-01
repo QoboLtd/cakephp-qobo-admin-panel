@@ -27,9 +27,6 @@ foreach ($elements as $k => $v) {
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="tab tab-title-toggle">
-        <a href="#" role="tab" data-toggle="offcanvas"><i class="fa fa-navicon fa-2x"></i></a>
-    </li>
     <?php $count = 0; foreach ($elements as $k => $v) : ?>
     <li role="presentation" class="<?= 0 === $count ? 'active' : '' ?> tab-title-<?= $k ?> sidebar-collapse">
         <a href="#<?= $k ?>" aria-controls="<?= $k ?>" role="tab" data-toggle="tab">

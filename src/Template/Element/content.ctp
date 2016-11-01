@@ -12,7 +12,8 @@
     </div>
     <div class="<?= $hasSidebar ? 'col-xs-12 col-md-4 col-lg-3' : 'col-xs-12'; ?> right-sidebar wrapper">
         <div class="row row-offcanvas row-offcanvas-left">
-            <div class="column sidebar-offcanvas" id="sidebar">
+            <a href="#" role="tab" data-toggle="offcanvas" id="sidebar-toggler"><i class="fa fa-navicon fa-2x"></i></a>
+            <div class="column sidebar-offcanvas sidebar-collapse" id="sidebar">
                 <?= $sidebarContent ?>
             </div>
         </div>

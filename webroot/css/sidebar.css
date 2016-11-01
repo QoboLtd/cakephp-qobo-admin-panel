@@ -99,3 +99,9 @@
 
   }
 }
+
+#sidebar-toggler {
+    position:relative;
+    float: right;
+    right: 0;
+}
