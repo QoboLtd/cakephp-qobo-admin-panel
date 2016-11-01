@@ -28,7 +28,7 @@ foreach ($elements as $k => $v) {
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     <?php $count = 0; foreach ($elements as $k => $v) : ?>
-    <li role="presentation" class="<?= 0 === $count ? 'active' : '' ?> tab-title-<?= $k ?>">
+    <li role="presentation" class="<?= 0 === $count ? 'active' : '' ?> tab-title-<?= $k ?> sidebar-collapse">
         <a href="#<?= $k ?>" aria-controls="<?= $k ?>" role="tab" data-toggle="tab">
             <?= Inflector::humanize($k) ?>
         </a>
