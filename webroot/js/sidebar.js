@@ -1,5 +1,6 @@
 $(document).on('ready', function() {
 	$('[data-toggle=offcanvas]').click(function() {
+        console.log('offcanvas');
 		$('.row-offcanvas').toggleClass('active');
 		$('.sidebar-collapse').toggleClass('in').toggleClass('hidden-xs').toggleClass('visible-xs');
 
