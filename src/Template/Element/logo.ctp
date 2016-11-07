@@ -13,6 +13,7 @@ if (Configure::check('Admin.panel.url')) {
 
 echo $this->Html->image($logoImageUrl, [
     'alt' => 'Site Logo',
-    'url' => $url,
+    'url' => $this->Url->build($url, ['fullBase' => true]),
+    'fullBase' => true
 ]);
 ?>
