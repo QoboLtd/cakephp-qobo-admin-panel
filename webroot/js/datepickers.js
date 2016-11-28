@@ -57,7 +57,7 @@ $(function () {
     // find out if added node is a datepicker element and return
     // the node and its type if it is, return empty otherwise
     var getDatepicker = function(node) {
-        result = {};
+        var result = {};
         $.each(types, function(type, properties) {
             $(node).find(properties.class).each(function(k, v) {
                 // target datepicker elements which include an input,
