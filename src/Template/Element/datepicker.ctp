@@ -24,9 +24,9 @@ if (is_null($options['fieldName'])) {
 
 extract($options);
 ?>
-<div class="form-group">
+<div class="form-group <?php echo $required ? 'required' : ''; ?>">
     <?php if ($label) : ?>
-        <?= $this->Form->label($fieldName); ?>
+        <?= $this->Form->label($fieldName, null, ['class' => 'control-label']); ?>
     <?php endif; ?>
     <div class='input-group date <?= $type ?>'>
         <?= $this->Form->input($fieldName, ['label' => false, 'type' => 'text', 'value' => $value, 'required' => $required]) ?>
